@@ -29,7 +29,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <google/protobuf/text_format.h>
-
+using namespace sockets;
 
 /**
  * It takes as arguments one char[] array of 4 or bigger size and an integer.
@@ -56,22 +56,32 @@ int _convertByteArrayToInt(char* b) {
 
 std::unique_ptr<char[]> get_operation(size_t& size) {
     static std::atomic<int> i{0};
+    
+    client_msg cMsg;
+    client_msg_OperationData* opd;
+    opd = cMsg.add_ops();
 
     if (i.fetch_add(1) % 2 == 0) {
         // create an ADD request that adds +5
         // that can be either 5 repeated add requests
         // or one add request with 5 as an argument
         //
-        
-        // Serialize the protobuf object into a char buf and return it.
-
+        opd->set_type(client_msg::ADD);
+        opd->set_argument(5);
     }
     else {
         // create a SUB request with 2 as an argument
         // that can be either 2 repeated sub requests
         // or one add request with 2 as an argument
-    
-        // Serialize the protobuf object into a char buf and return it.
-
+        opd->set_type(client_msg::SUB);
+        opd->set_argument(2);    
     }
+    
+    // Serialize the protobuf object into a char buf and return it.
+    size = cMsg.ByteSize();
+    std::unique_ptr<char[]> ch = std::make_unique<char[]>(size);
+    if(!cMsg.SerializeToArray(ch.get(), size)){
+        printf("serializing failed!");
+    };
+    return ch;
 }
