@@ -33,11 +33,8 @@ def main() -> None:
                     sys.exit(2)
 
                 num = 5000 * 100 * 3
-                if num != Lista[-1]:
+                if num not in Lista:
                     warn(f"output not correct")
-                    print(Lista[-1])
-                    print(Lista)
-                    Lista.sort();
                     print(Lista)
                     print(num)
                 info("OK")
