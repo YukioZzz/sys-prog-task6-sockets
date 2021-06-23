@@ -35,10 +35,10 @@ def main() -> None:
                     sys.exit(2)
 
                 num = 12500 * 6 *3
-                if num not in Lista:
+                if num != Lista[-1]:
                     warn(f"output not correct")
                     print(num)
-                    print(Lista)
+                    print(Lista[-1])
                     sys.exit(2)
                 info("OK")
 
