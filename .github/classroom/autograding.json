@@ -1,0 +1,84 @@
+{
+  "tests": [
+    {
+      "name": "Build",
+      "setup": "",
+      "run": "make all",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": null
+    },
+    {
+      "name": "Test message formatting",
+      "setup": "",
+      "run": "python ./tests/test_messages.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 4
+    },
+    {
+      "name": "Test the secure_recv() and secure_sent() functions",
+      "setup": "",
+      "run": "python ./tests/test_2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 6
+    },
+    {
+      "name": "Test single-threaded server and client",
+      "setup": "",
+      "run": "python ./tests/test_3.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 6
+    },
+    {
+      "name": "Test multithreaded-server (2 threads) and client (6 threads)",
+      "setup": "",
+      "run": "python ./tests/test_4.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 6
+    },
+    {
+      "name": "Test multithreaded-server (6 threads) and client (6 threads)",
+      "setup": "",
+      "run": "python ./tests/test_5.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 6
+    },
+    {
+      "name": "Test multithreaded-server (2 threads) and client (100 threads)",
+      "setup": "",
+      "run": "python ./tests/test_6.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 6
+    },
+    {
+      "name": "Test repeated requests for connections",
+      "setup": "",
+      "run": "python ./tests/test_7.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 6
+    }
+  ]
+}
