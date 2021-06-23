@@ -76,7 +76,7 @@ bool process_request(std::unique_ptr<char[]>& buffer, struct thread_args* ptr, i
                 server_msg smsg;
                 int val = number.load(); ///> store the current value;
                 smsg.set_result(val);
-                printf("%d\n",val);
+                fprintf(stdout,"%d\n",val);
                 std::cout.flush();
                 //smsg.set_total_bytes();
                 char smsgbuf[128];
